@@ -88,7 +88,38 @@ $0\leq u,v\leq\varpi/2$のとき,以下が成立する.またこの式は一般に$u,v\in \R$のとき
 以上により,周期$2\varpi$の周期函数$\slem(u),\clem(u)$が定義された.
 
 レムニスケートサイン/コサイン函数は以下の性質を持つ.
-\begin{prop}
+\begin{prop}以下が成立する.
+\begin{enumerate}
+\item $\slem,\clem$の特殊値
+\[\slem(0)=0,\ \clem(0)=1,\ \slem(\varpi/2)=1,\ \clem(\varpi/2)=0\]
+\item 導関数
+\[
+\slem'(u)=\clem(u)(1+\slem(u)^2), \clem'(u)=-\slem(u)(1+\clem(u)^2)
+\]
+\item 両者の間の恒等式
+\[
+(1+\slem(u)^2)(1+\clem(u)^2)=2\quad(\forall u\in\R)
+\]
+\item 両者の間の恒等式(2)
+\[
+\slem\left(u+\frac\varpi 2\right)=\clem(u),\ \clem\left(u+\frac\varpi 2\right)=-\slem(u)
+\]
+\item 対称性
+\[
+\slem(-u)=-\slem(u),\ \clem(-u)=\clem(u)
+\]
+\item 加法定理
+\begin{align*}
+\slem(u+v)&=\frac{\slem(u)\clem(v)+\clem(u)\slem(v)}{1-\slem(u)\slem(v)\clem(u)\clem(v)}\\
+\clem(u+v)&=\frac{\clem(u)\clem(v)-\slem(u)\slem(v)}{1+\slem(u)\slem(v)\clem(u)\clem(v)}
+\end{align*}
+\item 2倍角の公式
+\[
+\slem(2u)=\frac{2\slem(u)\clem(u)(1+\slem(u)^2)}{1+\slem(u)^4},\ 
+\clem(2u)=\frac{1-2\slem(u)^2-\slem(u)^4}{1+2\slem(u)^2-\slem(u)^4}
+=-\frac{1-2\clem(u)^2-\clem(u)^4}{1+2\clem(u)^2-\clem(u)^4}
+\]
+\end{enumerate}
 \end{prop}
 \begin{thebibliography}{99}
 \bibitem{lemellfunc} http://en.wikipedia.org/wiki/Lemniscatic\_elliptic\_function
