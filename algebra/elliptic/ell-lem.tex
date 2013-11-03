@@ -3,6 +3,8 @@
 \newcommand{\slem}{\mathrm{sl}}
 \newcommand{\clem}{\mathrm{cl}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Qed}{\begin{flushright}$\Box$\end{flushright}}
 \newtheorem{prop}{命題}[subsection]
 \newtheorem{theo}[prop]{定理}
 \newtheorem{defn}[prop]{定義}
@@ -121,6 +123,127 @@ $0\leq u,v\leq\varpi/2$のとき,以下が成立する.またこの式は一般に$u,v\in \R$のとき
 \]
 \end{enumerate}
 \end{prop}
+\subsection{複素函数としてのレムニスケートサイン/コサイン}
+\subsubsection*{$\slem(u)$のTaylor展開}
+$\slem'(u)$は$\slem(u)$と$\clem(u)$で表せるので,$\slem(u)$は無限回微分可能である.
+よって$z=0$の周りにおけるTaylor展開が存在する.関係式
+\[
+\slem'(u)=\sqrt{1-\slem(u)^4}
+\]
+を用いて,
+\begin{align*}
+\slem(u)=u+O(u^2)\longrightarrow\slem'(u)=\sqrt{1-(u^4+O(u^5))}=1-\frac 12 u^4+O(u^5)\longrightarrow \slem(u)=u-\frac 1{10}u^5+O(u^6)\\
+\longrightarrow \slem'(u)=\sqrt{1-\left(u^4-\frac 25 u^8+O(u^9)\right)}=1-\frac 12 u^4+\frac 3{40}u^8+O(u^9)\longrightarrow \slem(u)=u-\frac 1{10} u^5 +\frac 1{120}u^9+O(u^{10})
+\end{align*}
+を得る.ここで,以下の命題が成り立つ.
+\begin{prop}
+$\slem(u)$のTaylor展開を
+\[
+\slem(u)=\sum_{n=0}^\infty b_nu^n
+\]
+とする.このとき,
+\[
+b_n=0 \quad\mbox{(if  } n \not \equiv 1 \pmod 4)
+\]
+である.(証明略)
+\end{prop}
+この事実から,$\slem(u)$のTaylor展開に$u=it$を形式的に代入することで,
+\[
+\slem(it)=i\slem(t)
+\]
+が得られる.またこのとき,
+\[
+\clem(it)=\frac{\sqrt{1-\slem(it)^4}}{1+\slem(it)^2}=\frac{\sqrt{1-\slem(t)^4}}{1-\slem(t)^2}=\frac 1 {\clem(t)}
+\]
+も導かれる.この式を元にして$\slem(u),\clem(u)$の定義域を複素数全体に拡張する.
+\begin{defn}
+$u,v\in \R$について,
+\[\slem(it)=i\slem(t),\ \clem(it)=\frac 1{\clem(t)}\]と定め,
+$u+iv\in\C$については,加法定理を形式的に用いて
+\begin{align*}
+\slem(u+iv)&:=\frac{\slem(u)\clem(iv)+\clem(u)\slem(iv)}{1-\slem(u)\slem(iv)\clem(u)\clem(iv)} \\
+&=\frac{\slem(u)/\clem(v)+i\clem(u)\slem(v)}{1-i\slem(u)\slem(v)\clem(u)/\clem(v)}
+\end{align*}
+\begin{align*}
+\clem(u+iv)&:=\frac{\clem(u)\clem(iv)-\slem(u)\slem(iv)}{1+\slem(u)\slem(iv)\clem(u)\clem(iv)} \\
+&=\frac{\clem(u)/\clem(v)-i\slem(u)\slem(v)}{1+i\slem(u)\slem(v)\clem(u)/\clem(v)} 
+\end{align*}
+と定める.このとき$\slem,\clem:\C\rightarrow\C\cup\{\infty\}$は(一部の点を除いて定義される)複素函数であり,
+加法定理と
+\[\slem(iz)=i\slem(z),\ \clem(iz)=\frac 1{\clem(z)}\quad(\forall z\in\C)\]
+および関係式
+\begin{equation}
+(1+\slem(z)^2)(1+\clem(z)^2)=2\quad(\forall z\in\C) \label{2}
+\end{equation}
+を満たす.(証明略)
+\end{defn}
+\begin{rema}
+$\slem,\clem$は($\C\rightarrow\C$の写像としてみたとき)定義されない点を持つ.その場合は$\slem(z)=\infty$と定める.
+\end{rema}
+以降は引数が複素数であることを強調するために引数として文字$z$を使う.
+
+$\slem(z),\clem(z)$の特殊値を求める.
+\begin{prop}
+\[
+\slem\left(\frac 12 \varpi i\right)=i,\ \slem\left(\frac 12 \varpi(1+i)\right)=\infty,
+\ \clem\left(\frac 12 \varpi i\right)=\infty,\ \clem\left(\frac 12 \varpi(1+i)\right)=-i
+\]
+\end{prop}
+(証明) 
+\[
+\slem\left(\frac 12 \varpi i\right)=i\slem\left(\frac 12 \varpi\right)=i\cdot 1=i
+\]
+\[
+\clem\left(\frac 12 \varpi i\right)=\frac 1{\clem\left(\frac 12 \varpi\right)}=\frac 10=\infty
+\]
+\[
+\slem\left(\frac 12 \varpi(1+i)\right)=\clem\left(\frac 12 \varpi i\right)=\infty
+\]
+\[
+\clem\left(\frac 12 \varpi(1+i)\right)=-\slem\left(\frac 12 \varpi i\right)=-i
+\]\Qed
+
+\begin{prop}
+\[\slem(\varpi(1+i))=0,\ \clem(\varpi(1+i))=1\]
+\end{prop}
+(証明)\\
+2倍角の公式を用いる.$c:=\clem(\varpi(1+i)/2)=-i$とおく.
+\[
+\clem(\varpi(1+i))=-\frac {1-2c^2-c^4}{1+2c^2-c^4}=-\frac{1+2-1}{1-2-1}=1
+\]
+また,関係式(\ref{2})
+\[
+(1+\slem(z)^2)(1+\clem(z)^2)=2\quad(\forall z\in\C)
+\]より
+\[
+(1+\slem(\varpi(1+i))^2)(1+\clem(\varpi(1+i))^2)=2
+\]
+\[
+(1+\slem(\varpi(1+i))^2)(1+1)^2)=2
+\]
+\[
+1+\slem(\varpi(1+i))^2=1
+\]
+\[
+\slem(\varpi(1+i))=0
+\]
+\Qed
+以上より,$z=\varpi(1+i)$での$\slem,\clem$の値は$z=0$での値に等しい.
+また,$\slem,\clem$の導関数はすべて$\slem,\clem$の式で表せるので,$z=\varpi(1+i)$での$\slem,\clem$の任意の階数の微分の値は$z=0$での値に等しい.
+よって$z=\varpi(1+i)$近傍の振る舞いと$z=0$近傍の振る舞いは同じであり,$\slem,\clem$は周期$\varpi(1+i)$の周期函数である.
+これを直接的に示す.
+\begin{theo}
+\[
+\slem(z+\varpi(1+i))=\slem(z),
+\ \clem(z+\varpi(1+i))=\clem(z)
+\]
+\end{theo}
+(証明)加法定理より明らか.\Qed
+以上より$\slem(z),\clem(z)$は{\bf 二重周期函数}である.
+\section{ヴァイエルシュトラスの$\wp$函数}
+(大幅に省略.格子,$\wp_L(z)$,$G_n(L)$を定義する.)
+\section{$\slem(z),\clem(z)$と$\wp_L(z)$のアヤシイ関係}
+$L:=\varpi\{1-i,1+i\}$とおく.
 \begin{thebibliography}{99}
 \bibitem{lemellfunc} http://en.wikipedia.org/wiki/Lemniscatic\_elliptic\_function
 \bibitem{lemellfuncja} http://ja.wikipedia.org/wiki/レムニスケート周率
