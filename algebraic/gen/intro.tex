@@ -1,0 +1,77 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\section{代数的整数論の紹介}
+\subsection{古典的整数論}
+まずは,今まで高校で習ってきたふつうの整数論について復習しましょう.\\
+問1.\\
+$n \in \mathbb N,n\geq 2$のとき,正の整数$a$に対して$a(a+1)$は$n$乗数になりえないことを示せ.(東京大2012年理科4番)\\
+解答\\
+$n(n+1)$が$n$乗数であるとする.\\
+$n$と$n+1$の公約数を$d$とすると,$d$は$(n+1)-n=1$を割り切る.よって$d=1$より,$n$と$n+1$は互いに素である.\\
+よって$n$も$n+1$も$n$乗数だが,二つの異なる正の$n$乗数の差は$n$以上なので(証明略),矛盾.\\
+\begin{flushright}
+証明終
+\end{flushright}
+以下の例では
+これと同じようなことをやっているが,すぐには正当化できない.\\
+問2.
+$y^2+2=x^3(y>0)$の整数解をすべて求めよ.\\
+解?\\
+$2|y$と仮定すると,$y^2+2\equiv 2 \pmod 8$より,不適.\\
+よって$y$は奇数. 
+$\theta=\sqrt{-2}$とおき,因数分解を行う.\\
+\[
+(y+\theta)(y-\theta)=x^3
+\]
+ここで,$y+\theta$と$y-\theta$の最大公約数を$d$とすると,
+\[
+d | (y+\theta)-(y-\theta)=2\theta,d | (y+\theta)+(y-\theta)=2y
+\]
+よって,$d=1,\theta,2$\\
+$\theta \not | y+\theta$より,$d=1$\\
+よって,\[
+y+\theta=\alpha^3,y-\theta=\beta^3
+\]となる$\alpha,\beta$が存在する.
+\[2\theta=\alpha^3-\beta^3=(\alpha-\beta)(\alpha^2+\alpha\beta+\beta^2)\]
+(1)$\alpha-\beta=\pm 1$のとき
+\begin{align}
+2\theta&=\pm 1 \cdot ((\beta\pm 1)^2 +(\beta \pm 1)\beta +\beta^2)\\
+&=\pm 3\beta^2+3\beta\pm 1
+\end{align}
+しかし$3 \not | 2\theta \pm 1$より不適.\\
+(2)$\alpha-\beta=\pm \theta$のとき
+\begin{align}
+2\theta&=\pm \theta \cdot ((\beta\pm \theta)^2 +(\beta \pm \theta)\beta +\beta^2)\\
+&=\theta(\pm 3\beta^2+3\beta\theta\pm \theta^2)\\
+2&=\pm 3\beta^2+3\beta\theta\mp 2\\
+0&=\beta(\beta-\theta)
+\end{align}
+\[
+\beta=0,\theta
+\]
+\[
+y=\theta,-\theta
+\](それぞれ)\\
+$y$は整数なので不適.\\
+(3)$\alpha-\beta=\pm 2$のとき\\
+\begin{align}
+2\theta&=\pm 2 \cdot ((\beta\pm 2)^2 +(\beta \pm 2)\beta +\beta^2)\\
+&=2(\pm 3\beta^2+6\beta\pm 4)\\
+\theta&=\pm 3\beta^2+6\beta\pm 4\\
+\end{align}
+(1)と同様にこれも不適.\\
+(4)$\alpha-\beta=\pm 2\theta$のとき
+\begin{align}
+2\theta&=\pm 2\theta \cdot ((\beta\pm 2\theta)^2 +(\beta \pm 2\theta)\beta +\beta^2)\\
+&=2\theta(\pm 3\beta^2+6\beta\theta\pm 4\theta^2)\\
+1&=\pm 3\beta^2+6\beta\theta\mp 8\\
+9&=+3\beta^2+6\beta\theta\\
+1&=(\beta+\theta)^2\\
+\beta+\theta&=1,-1\\
+\beta&=1-\theta,-1-\theta\\
+\beta^3&=-5-\theta,5-\theta\\
+y&=-5,5
+\end{align}
+$y>0$より$y=5$
+\end{document}

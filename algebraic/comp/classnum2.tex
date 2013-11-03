@@ -1,0 +1,92 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\p}{\mathfrak p}
+\begin{document}
+2012/09/22
+\section{$\mathbb Q(\sqrt{-1999})$のイデアル類群}
+$\theta=(-1+\sqrt{-1999})/2$とおくと,$\theta$の最小多項式は
+$f(x)=x^2+x+500$である.
+また$\mathbb Z_{\mathbb Q(\theta)}=\mathbb Z[\theta]$であるため,素イデアル分解は
+簡単である.(簡単のため$R:=\mathbb Z[\theta]$とする)\\
+Minkowski Boundは
+\[
+\sqrt{|D|}\left(\frac 4\pi\right)^{r_2}\cdot \frac{n!}{n^n}=\frac{2\sqrt{1999}}{\pi}\sim 28.463
+\]
+であるから,Normが28以下のイデアルについて調べれば十分である.
+(注:$p\geq 3$のとき
+\[x^2+x+500\equiv 0 \pmod p\mbox{の解が存在する}\Longleftrightarrow
+\left(\frac{-1999}p\right)=1\mbox{が成り立つ(証明略)}
+\]という事実が利用できる)
+例として,$p=5$のときを考える.
+\[\left(\frac{-1999}5\right)=\left(\frac 45\right)=1\]より,
+方程式\[x^2+x+500\equiv 0 \pmod 5\]は(有理整数の)解をもつ.よって,
+因数分解ができる($x^2+x+500\equiv x(x+1)\pmod 5$).\\
+これから,
+\[(5)=(5,\theta)(5,\theta+1)\]がいえる.
+同様にして,28以下の有理素数の($R$上の)分解を試みたところ,
+次の5通りで(2個以上の($R$上の)素イデアルへの分解に)成功した.
+\[
+(2)=\mathfrak p_0\mathfrak p_1,
+(5)=\mathfrak p_2\mathfrak p_3,
+(11)=\mathfrak p_4\mathfrak p_5,
+(13)=\mathfrak p_6\mathfrak p_7,
+(23)=\mathfrak p_8\mathfrak p_9
+\]
+ここで,$\mathfrak p_0,\cdots,\mathfrak p_9$は以下のとおりである.
+\begin{align*}
+\mathfrak p_0=(2,\theta)\\
+\mathfrak p_1=(2,\theta+1)\\
+\mathfrak p_2=(5,\theta)\\
+\mathfrak p_3=(5,\theta+1)\\
+\mathfrak p_4=(11,\theta-2)\\
+\mathfrak p_5=(11,\theta+3)\\
+\mathfrak p_6=(13,\theta+5)\\
+\mathfrak p_7=(13,\theta-4)\\
+\mathfrak p_8=(23,\theta+14)\\
+\mathfrak p_9=(23,\theta-13)
+\end{align*}
+ここで,この10個のイデアルの関係を調べるために$f(*)$を計算する.(これをする理由は,
+\[|f(t)|=|N_{\mathbb Q(\theta)/\mathbb Q}(\theta-t)|=N_{\mathrm{ideal}}((\theta-t)\mathbb Z[\theta])\]
+が成り立つからである.)\\
+$N_{\mathrm{ideal}}(\theta R)=|f(0)|=500=2^2\cdot 5^3$であり,
+\[\theta \in \mathfrak p_0,\theta \not\in \mathfrak p_1,
+\theta \in \mathfrak p_2,\theta \not\in \mathfrak p_3
+\]であるので,
+\[\theta R=\mathfrak p_0^2\mathfrak p_2^3\]であることがわかる.
+同様にして,
+\begin{align}
+(\theta)=\p_0^2\p_2^3 \quad &(f(0)=500=2^2\cdot 5^3\mbox{より})\\
+(\theta-2)=\p_0 \p_4\p_8\quad &(f(2)=50=2\cdot 11\cdot 23\mbox{より})\\
+(\theta-3)=\p_1^9\quad&(f(3)=512=2^9\mbox{より})\\
+(\theta-4)=\p_0^3\p_3\p_7\quad&(f(4)=520=2^3\cdot 5\cdot 13\mbox{より})\\
+(\theta-8)=\p_0^2\p_5\p_6\quad&(f(8)=572=2^2\cdot 11\cdot 13\mbox{より})
+\end{align}
+以上から,次のような関係式ができる.
+\begin{align}
+\p_0\p_1\sim (1)\\
+\p_2\p_3\sim (1)\\
+\p_4\p_5\sim (1)\\
+\p_6\p_7\sim (1)\\
+\p_8\p_9\sim (1)\\
+\p_0^2\p_2^3\sim (1)\\
+\p_0\p_4\p_8\sim (1)\\
+\p_1^9\sim (1)\\
+\p_0^3\p_3\p_7\sim (1)\\
+\p_0^2\p_5\p_6\sim (1)
+\end{align}
+これを解くと,
+\begin{align*}
+\p_2^{27}\sim (1)\\
+\p_0\sim \p_2^{12}\\
+\p_1\sim \p_2^{15}\\
+\p_3\sim \p_2^{26}\\
+\p_4\sim \p_2^{5}\\
+\p_5\sim \p_2^{22}\\
+\p_6\sim \p_2^{8}\\
+\p_7\sim \p_2^{19}\\
+\p_8\sim \p_2^{10}\\
+\p_9\sim \p_2^{17}
+\end{align*}
+よって,
+\[\mathrm{Cl}(\mathbb Q(\theta))\simeq \mathbb Z/27\mathbb Z\]である.
+\end{document}

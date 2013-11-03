@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+  <meta content="text/html; charset=Shift_JIS" http-equiv="content-type">
+  <title>Fermatの最終定理</title>
+</head><body>
+<h1>Fermatの定理の証明</h1>
+ここでは,Fermatの最終定理の一部の証明を扱う。ここに載せている証明は概略のみであるから、詳しくはそれぞれの章についているpdfを読まれたい。
+命題
+<img src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x^p%2by^p=z^p\Longrightarrow%20xyz=0">
+は、pが<a href="./fermat-gro.html">正則素数</a>ならば代数的整数論を用いることで解ける。<br/>
+<h2>x,y,zは互いに素で、xyzがpの倍数でないとき</h2><a href="./fermat-affix0.pdf">解説(pdf)</a><br/>
+x<sup>p</sup>+y<sup>p</sup>=(x+y)(x+ζy)(x+ζ<sup>2</sup>y)...(x+ζ<sup>p-1</sup>y)=z<sup>p</sup><br/>
+となる。ここで、<br/>
+(x+y,x+ζy)<br/>
+を求めよう。するとこれは(1)になる<sup>[1]</sup>。<br/>
+λ=1-ζとおく。
+(x+y,x+ζy)=(1)<br/>
+なので、x+yはλでは割り切れないため、x+ζ<sup>i</sup>yはすべてλで割り切れない。よって、<br/>
+x+ζy=εα<sup>p</sup><br/>
+となるε,αが存在する<sup>[2]</sup>。この式の複素共役をとると、<br/>
+x+ζ<sup>-1</sup>y=ε~α~<sup>p</sup><br/>
+となる。<br/>
+ε~=εζ<sup>r</sup><br/>
+となるrが存在するので<sup>[3]</sup>、<br/>
+x+ζ<sup>-1</sup>y=ε~α~<sup>p</sup>≡εζ<sup>r</sup>α~<sup>p</sup>≡εζ<sup>r</sup>α<sup>p</sup>=ζ<sup>r</sup>(x+ζy) (mod p)<br/>
+となる<sup>[4]</sup>。
+
+<br/>参考資料
+<cite><a href="http://www2.biglobe.ne.jp/~optimist/algebra/fermat2_doc.html">Fermat 2</a></cite>
+</body></html>

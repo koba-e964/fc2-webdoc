@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+  
+  
+  <meta content="text/html; charset=Shift_JIS" http-equiv="content-type">
+  <title>群/1.入門</title>
+</head><body>
+<br>
+まずは、群とは何かについて説明する。
+その前に、既知の代数構造について少し考察しよう。
+<h3>実数<img src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cmathbb%20R"/></h3>
+実数a,bについて,和a+bと積abには結合法則と交換法則が成立する。
+つまり、<br/>
+<img src="http://chart.apis.google.com/chart?cht=tx&amp;chl=a,b%5Cin{%5Cmathbb%20R}%5CLongrightarrow%20a%2Bb%3Db%2Ba,ab%3Dba"/><br/>
+<img src="http://chart.apis.google.com/chart?cht=tx&amp;chl=a,b%5Cin{%5Cmathbb%20R}%5CLongrightarrow%20(a%2Bb)%2Bc%3Da%2B(b%2Bc),(ab)c%3Da(bc)"/><br/>
+が成立している。また、加法には逆演算として減法-がある。これはa+(-b)と同義である。
+乗法には逆演算として除法a/bがある。これはa*(1/b)と同義である。
+つまり減法は、単項演算子(一つの式の前につく演算子)-を定義することで定義でき、
+除法は逆数i(b)=1/bを定義することで定義できるのである(ふつうはこんな定義はしないが)。
+なおbに対する(-b)を、bの反数ということもある。(「逆数」と違い一般的ではない)
+<h3>行列</h3>
+よく知られているように、n次正方行列A,Bに対して、交換法則AB=BAは一般には成立しない。
+しかし、結合法則(AB)C=A(BC)はどのような場合でも成立する。<br/>
+<b>このことは行列をn次ベクトル空間に対する線形写像ととらえる場合には自明の理である。</b><br/>
+(n次ベクトルxに対して<b>AB(x)=A(B(x))</b>という関係が成り立つので,
+<b>((AB)C)(x)=(AB)(C(x))=A(B(C(x)))=A((BC)(x))=(A(BC))(x)</b>となる。太字で示した部分は
+重要である。)
+<h3>群</h3>
+群は、以上のような具体的な対象の、「結合法則が成り立つ」「逆演算が可能」という性質を抜き出して抽象化した、
+つまりそれ以外の「交換法則が成り立つ」などの性質をすべて無視したものである。<br/>
+次の章から、群の定義などの詳細に入る。<br/>
+<br/>
+<a href="../a_top.html">代数学Topに戻る</a>
+</body></html>

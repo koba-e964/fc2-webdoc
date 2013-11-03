@@ -1,0 +1,108 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,url}
+\setcounter{section}{107}
+\newtheorem{theo}{定理}[section]\numberwithin{theo}{subsection}
+\newtheorem{prop}{命題}[section]\numberwithin{prop}{subsection}
+\newtheorem{defn}{定義}[section]\numberwithin{defn}{subsection}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Qed}{\begin{flushright}$\Box$\end{flushright}}
+\begin{document}
+\section{代数体の単数}
+単数はノルム\cite{gen0}が$\pm 1$となる代数的整数である.
+\subsection{基本的な性質}
+\begin{prop}
+有理数体$\Q$の単数は$\pm 1$に限る.
+\end{prop}
+証明\\
+$x\in\Q$のとき$N(x)=x=\pm 1$となるのは$x=\pm 1$の場合に限る.\Qed
+\begin{prop}
+虚二次体$K(\sqrt m)(m<0)$に対して,単数は\\
+$m=-1$のとき$\{1,i,-1,-i\}$\\
+$m=-3$のとき$\{\pm 1,\pm\omega,\pm\omega^2\}(\omega=(-1+\sqrt{-3})/2)$\\
+\end{prop}
+証明\\
+そのうち書く.
+\begin{prop}
+ある数$x\in K$が単数である場合,$K$の任意の拡大体を$L$とすると,
+$x$は$L$でも単数である.
+\end{prop}
+証明\\
+略
+\begin{prop}
+$n$次の体$K$と代数的数$x\in K$とその共役$x^{(1)},\cdots,x^{(n)}$に対して,
+\[(\forall i \in \{1,2,\cdots,n\};|x^{(i)}|=1)\Longleftrightarrow x\mbox{は1のべき根である}\]
+\end{prop}
+証明\\
+($\Longrightarrow$):\\
+$K$の整基底を$\omega_1,\omega_2,\cdots,\omega_n$とおく.
+$x$は有理整数$a_1,a_2\cdots,a_n$を用いて
+\[
+x=a_1\omega_1+\cdots+a_n\omega_n
+\]
+と表せる.
+ここで,$x$の全ての共役を考えると(必ずしも$K$に含まれるとは限らない),
+\[
+\forall i ; x^{(i)}=a_1\omega_1^{(i)}+\cdots+a_n\omega_n^{(i)}
+\]
+よって,$\forall i;|x^{(i)}|=1$より,Minkowskiの理論\cite{min0}から,条件を満たす$(a_i) _{i\in \{1,2,\cdots,n\}}$
+は有限種類しかない.よって,
+$\forall i;|x^{(i)}|=1$ならば$\forall m\in \Z_{\geq 0},\forall i;|(x^m)^{(i)}|=1$も成り立つので,
+ある$n,m\in \Z_{\geq 0},n>m$に対して$x^n=x^m$となる.$x^{n-m}=1$である.\\
+($\Longleftarrow$):自明\Qed
+以下の定理はDirichletの単数定理と呼ばれ,結果と証明双方が重要である.
+\begin{theo}[Dirichlet's unit theorem]
+\[
+\varepsilon=\rho \varepsilon_1^{e_1}\varepsilon_2^{e_2}\cdots\varepsilon_r^{e_r}
+\]
+\end{theo}
+この定理の証明に必要な補題を示す.
+\begin{prop}
+$n$次代数体$K$に対して,その共役のうち実であるものの個数を$r_1$,虚であるものの個数を$2r_2$とおく.($n=r_1+2r_2$\cite{gen0})\\
+$r:=r_1+r_2-1$とおくと,$K$内に$r$個の単数$\eta_1,\eta_2,\cdots,\eta_r$が存在して,以下の条件を満たす.\\
+$1\leq i \leq r$を満たす$i$に対し,
+\[|\eta_i^{(i)}|>1\wedge\forall s\neq i;|\eta_i^{(s)}|<1\]
+\end{prop}
+証明\\
+Minkowskiの定理\cite{min0}より,ある正の数$C$が存在して,
+\[\forall \lambda_i\in \mathbb R_+(i\in\{1,2,\cdots,r_1+r_2\});\lambda_1\lambda_2\cdots \lambda_{r_1+r_2}\geq C\Longrightarrow 
+(\exists \alpha \in \Z_K,\forall i\in\{1,2,\cdots,r_1+r_2\};|\alpha^{(i)}|\leq \lambda^{(i)})\]
+となる$\alpha$が存在する.
+(注:その$C$は\[C:=\sqrt{|D|}\left(\frac \pi 2\right)^{r_2}\cdot \frac{n!}{n^n}\](多分)である.)\\
+ここで,整数の(無限)列$(\beta_n)_{n=1}^\infty$を以下のように定義する.\\
+(i)$\beta_0=1$(ここは割といい加減であり,$|N(\beta_0)|\leq C,\beta_0\neq 0$であればよい)\\
+(ii)$\beta_{m+1}$:\\
+\begin{align*}
+&|\beta_{m+1}^{(1)}|\leq C\left(\frac {m+1}m\right)^{r_1+r_2-1}\cdot(|\beta_m^{(2)}|\cdots|\beta_m^{(r_1+r_2)}|)^{-1}\\
+2\leq \forall i\leq r_1+r_2;\quad&|\beta_{m+1}^{(i)}|\leq \frac m{m+1}|\beta_m^{(i)}|
+\end{align*}
+が成り立つように0でない整数$\beta_{m+1}\in \Z_K$を決める(
+\[
+C\left(\frac {m+1}m\right)^{r_1+r_2-1}\cdot(|\beta_m^{(2)}|\cdots|\beta_m^{(r_1+r_2)}|)^{-1}
+\prod_{i=2}^{r_1+r_2} \left(\frac m{m+1}|\beta_m^{(i)}|\right)=C
+\]よりこれは可能である).\\
+この決め方から,以下の事実がわかる.\\
+(1)
+\[
+|N(\beta_m)|\leq C \qquad(\forall m\in \Z_{\geq 0})
+\]
+(2)
+\[
+\forall m_1,m_2\in \Z_{\geq 0};\quad m_1>m_2\Longrightarrow |\beta_{m_1}^{(i)}|<|\beta_{m_2}^{(i)}|\qquad (\forall i\in\{2,3,\cdots,r_1+r_2\})
+\]
+ここで,Minkowskiの理論より,ノルムが$C$以下であるイデアルは有限種類しかないので,
+ある正の整数$p,q\quad(p<q)$に対して$(\beta_p)=(\beta_q)$となる.
+$\eta_1=\beta_q/\beta_p$とおくと,$\eta_1$は単数となる.また,
+\[
+\forall i\in\{2,3,\cdots,r_1+r_2\};\quad |\eta^{(i)}|=\frac{|\beta_q|}{|\beta_p|}<1である.
+\]
+また$|N(\eta_1)|=1$より,
+\[
+|\eta_1^{(1)}|=\frac{|N(\eta)|}{|\eta_1^{(2)}||\eta_1^{(3)}|\cdots |\eta_1^{(r_1+r_2)}|}>1
+\]
+\begin{thebibliography}{50}
+\bibitem{gen0} ./gen0.pdf まだ書いている途中です...
+\bibitem{min0} ./min0.pdf まだ書いている途中です...
+\end{thebibliography}
+
+\end{document}

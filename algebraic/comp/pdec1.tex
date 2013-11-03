@@ -1,0 +1,142 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathrm {GF}}
+\newcommand{\Gal}{\mathrm{Gal}}
+\begin{document}
+2012/09/24(Mon.)
+\section{分解群(および惰性群)の計算}
+さまざまな$\Q$の拡大体について,そのガロア群,分解群(場合により惰性群,Frobenius写像)を計算する.\\
+ここで,分解群,惰性群,Frobenius写像の定義について確認する.\\
+体の拡大$L/K$と,$L$上の素イデアル$w$,$K$上の素イデアル$v$,が定義されているものとし,
+$w$は$v$の上にあるとする.\\
+このとき,
+{\bf 分解群}(Decomposition Group) $D(L/K,w)$は以下のように定義できる.
+\[D(L/K,w)=\{\sigma \in \Gal(L/K) : \sigma(w)=w\}\]
+また素イデアル$v,w$に対する有限群をそれぞれ$\F_v,\F_w$とおくと,
+自然な全射
+\[D(L/K,w)\longrightarrow \Gal(\F_w/\F_v),\sigma\mapsto(x\in \F_w \mapsto \sigma(x)\in \F_w)\]
+が定義できる($D(L/K,w)$の定義より$\sigma$では$\F_q$は変わらない).\\
+この全単射の写像の核を{\bf 惰性群}(Inertia Group)といい,$I(L/K,w)$と表す.
+準同型定理より,
+\[D(L/K,w)/I(L/K,w)\simeq \Gal(\F_w/\F_v)\]である.
+また直接的には,
+\[I(L/K,w)=\{\sigma \in D(L/K,w): \forall a \in \Z_L, \sigma(a)\equiv a \pmod w)\}\]である.\\
+また,$\Gal(\F_w/\F_v)$は巡回群であるが,その生成元の一つであり,
+\[\sigma \in \Gal(\F_w/\F_v),\forall a \in \Z_L,\sigma(a)\equiv a^{|\F_w|} \pmod w
+\]を満たす$\sigma$を$w$の(数論的){\bf Frobenius置換/写像}といい,
+\[
+\left[\frac{L/K}{w}\right]
+\]と表記する.\\
+この定義からわかるように,アーベル拡大でない場合は,分解群,惰性群,Frobenius写像は$w$の取り方によって
+異なる場合がある.また,ガロア群$\Gal(L/K)$の正規部分群になっているとは限らない.\\
+$\Gal(L/K)$の部分群$D(L/K,w),I(L/K,w)$に対応する$L$の部分体をそれぞれ$L_D,L_I$とすると,
+\[\{1\}\subset I(L/K,w)\subset D(L/K,w)\subset \Gal(L/K)\]
+なので,
+\[L\supset L_I \supset L_D \supset K\]
+である(それぞれの拡大はガロア拡大である保証はない).\\
+また$w$の{\bf 相対次数}とは,$\F_w/\F_v$の拡大次数,つまり$\log_{|\F_v|}|\F_w|$を表す.\\
+
+以下で素イデアル$w$の分岐の仕方を示す.(正の整数$e,f,g$を使う)\\
+(i)$L_D/K$($g$次)\\
+$v=P_0P_1\cdots$という形に素イデアル分解できる(各$P_i$は互いに共役であるとは限らない).このとき
+$w$が$P_0$の上にあるとしてよい.そうすると$w=P_0^e$が成り立っている.またこのとき$P_0$の相対次数は1である.
+(ii)$L_I/L_D$($f$次)\\
+$P_0$は分解されない.そのため相対次数は1から$f$になる.\\
+(iii)$L/L_I$($e$次)
+$P_0$は分岐し,$w$になる.相対次数は$f$のままである.\\
+以上からわかることだが,$|\Gal(L/K)|=[L:K]=efg$である.\\
+
+この文書の目的はあくまでも計算であるため,詳しい解説は該当する文書に委ねよう.
+
+\subsection{$\Q(\zeta_8)/\Q$}
+$L=\Q(\zeta_8)$とおく.また,
+$\zeta_8$は,1の8乗根のうち,偏角が正で最小のものとする.(つまり
+\[\zeta_8=\frac{1+\sqrt{-1}}{\sqrt 2}\]である.)\\
+$\zeta_8$の最小多項式$f(x)$は,\[f(x)=(x^8-1)/(x^4-1)=x^4+1\]である.
+この拡大は円分拡大(cyclotomic extension)と呼ばれている(1のべき乗根を添加しているため).
+またこの拡大はガロア拡大であり,そのガロア群は
+\[\Gal(L/\Q)=\{1,\sigma,\tau,\sigma\tau\}\]
+(ただし,
+\begin{align*}
+\sigma:\zeta_8\mapsto \zeta_8^3,\sqrt{2}\mapsto -\sqrt{2},\sqrt{-1}\mapsto -\sqrt{-1}\\
+\tau:\zeta_8\mapsto \zeta_8^5,\sqrt{2}\mapsto -\sqrt{2},\sqrt{-1}\mapsto \sqrt{-1}
+\end{align*}
+である.)\\
+円分拡大であるため,また位数が4(有理素数の2乗)であるため,$\Gal(L/\Q)$は可換群になる.\\
+$L$の整数環を$\Z_L$と書くと,
+(計算省略)$\Z_L=\Z[\zeta_8]$なので,任意の(有理)素数$p$に対して
+$p\not | (\Z_L :\Z[\zeta_8])\ (=1)$が成立する.
+よってすべての(有理)素数$p$に対して,多項式の$\bmod p$での因数分解によって
+イデアル$p\Z[\zeta_8]$の分解ができる.
+\subsubsection{$p=2$の場合}
+\[x^4+1\equiv (x+1)^4 \pmod 2\]より,
+\[(2)=(2,\zeta_8+1)^4\]と分解できる.($\mathfrak P_0=(2,\zeta_8+1)$とおく)\\
+これからわかるように,(2)の上にある素イデアルは$\mathfrak P_0$しかないため,共役はすべて
+$\mathfrak P_0$に一致する.よって\[D(L/\Q,\mathfrak P_0)=\Gal(L/\Q)\]である.
+また\[\F(\mathfrak P_0)\simeq \F(2)\simeq \Z/2\Z\]であるため,$\mathfrak P_0$の相対次数は1である.
+よって\[I(L/\Q,\mathfrak P_0)=D(L/\Q,\mathfrak P_0)\]である.
+Frobenius写像は単位元1以外にはありえない.
+\subsubsection{$p=5$のとき}
+\[x^4+1\equiv (x^2+2)(x^2+3) \pmod 5\]より,
+\[(2)=(5,\zeta_8^2+2)(5,\zeta_8^2+3)\]と分解できる.($\mathfrak P_1=(5,\zeta_8^2+2),\mathfrak P_2=(5,\zeta_8^2+3)$とおく)\\
+$\sigma,\tau$による作用は
+\begin{align*}
+\sigma(\mathfrak P_1)=(5,-\zeta_8^2+2)=(5,\zeta_8^2+3)=\mathfrak P_2\\
+\sigma(\mathfrak P_2)=(5,-\zeta_8^2+3)=(5,\zeta_8^2+2)=\mathfrak P_1\\
+\tau(\mathfrak P_1)=\mathfrak P_1\\
+\tau(\mathfrak P_2)=\mathfrak P_2
+\end{align*}
+よって,$\mathfrak P_1$ないし$\mathfrak P_2$(アーベル拡大なのでどちらでも同じ)の分解群は
+\[
+D(L/\Q,\mathfrak P_1)=\{1,\tau\}=\langle \tau \rangle
+\]
+それに対応する中間体は
+\[L_D=\Q(i)\]
+事実,(5)は$L_D=\Q(i)$で,\[(5)=(i+2)(i-2)\]と分解する.\\
+$\mathfrak P_1$の指数は1なので,$L/L_I$の拡大次数も1,よって$L_I=L$である.($I=\{1\}$である.)\\
+Frobenius写像は$\tau$である.
+\subsection{$\Q(\sqrt[3]2,\omega)/\Q$}
+$L:=\Q(\sqrt[3]2,\omega),M:=\Q(\sqrt[3]2)$とおく.\\
+$p=5$を$M$上で素イデアル分解する.\\
+$x^3-2\equiv (x+2)(x^2-2x+4) \pmod 5$より,
+\[5\Z_M=(5,\sqrt[3]2+2)(5,\sqrt[3]4-2\sqrt[3]2+4)\]
+である.($\mathfrak p_0=(5,\sqrt[3]2+2),\mathfrak p_1=(5,\sqrt[3]4-2\sqrt[3]2+4)$とおく)\\
+$\mathfrak p_0$と共役なイデアルは$M$内には$\mathfrak p_0$しか存在しないことに注意せよ.
+
+今度は$L$上で考える.
+\[
+\theta=\sqrt[3]2-\omega
+\]
+とおくと,$\theta$の最小多項式は
+\[
+g(x)=x^6-3x^5+6x^4-11x^3+12x^2+3x+1
+\]
+である.
+$(\Z_L:\Z[\theta])=3^5$より,$p=5$は多項式の因数分解によって素イデアル分解ができる.
+詳しい計算は後で行うが,
+\[g(x)\equiv (x^2-2x-2)(x^2+2x-2)(x^2+2x-1)\pmod 5\]なので,
+\[
+5\Z_L=(5,\theta^2-2\theta-2)(5,\theta^2+2\theta-2)(5,\theta^2+2\theta-1)
+\]である.
+(\[\mathfrak P_2=(5,\theta^2-2\theta-2),\mathfrak P_3=(5,\theta^2+2\theta-2),\mathfrak P_4=(5,\theta^2+2\theta-1)\]とおく.)\\
+$\mathfrak P_2$は$\mathfrak p_0$の上にあり,$\mathfrak p_0=\mathfrak P_2 \cap M$が成り立っている.\\
+ここで,$L/\Q$のガロア群を求めると,
+\[\Gal(L/\Q)=\{1,\sigma,\sigma^2,\tau,\sigma\tau,\sigma^2\tau\}\]
+となる(ただし
+\begin{align*}
+\sigma:&\sqrt[3]2\mapsto \sqrt[3]2\omega,\omega\mapsto \omega,\\
+\tau:&\sqrt[3]2\mapsto \sqrt[3]2, \omega\mapsto \omega^2
+\end{align*}
+である).
+$\mathfrak P_2$は$\tau$で不変なので,また$1,\tau$以外の置換は$\mathfrak P_2$を不変に保たないため,
+\[D(L/\Q,\mathfrak P_2)=\{1,\tau\},L_D=\Q(\sqrt[3]2)=M\]
+(ここで,$D(L/\Q,\mathfrak P_2)$は$\Gal(L/\Q)$の正規部分群になっていないことに注意すること.)\\
+$\Gal(L/\Q)$の位数2の部分群は
+\[\{1,\tau\},\{1,\sigma\tau\},\{1,\sigma^2\tau\}\]
+の3個あるため,素イデアル$\mathfrak P_2,\mathfrak P_3.\mathfrak P_4$,
+および中間体$\Q(\sqrt[3]2),\Q(\sqrt[3]2\omega),\Q(\sqrt[3]2\omega^2)$に(順不同で)対応していることが
+推測できる.\\
+なお,どの場合についても惰性群は$\{1\}$である.また,Frobenius写像はそれぞれの群に含まれる1以外の元($\tau,\sigma\tau,\sigma^2\tau$)以外にはありえない.
+\end{document}

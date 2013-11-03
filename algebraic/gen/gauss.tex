@@ -1,0 +1,69 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,moreverb}
+\newtheorem{theo}{Theorem}[section]
+\newtheorem{defn}{Definition}[section]
+\begin{document}
+\section{指標()}
+指標$\chi$と正の整数$N$に対して,\[
+\tau(\chi,N):=\sum_{x\in (\mathbb Z/N)^\times} \chi(x)\zeta_N^x
+\]
+を$\chi$のGauss和という.($\zeta_N$は1の原始$n$乗根とする.)\\
+例:\\
+$N=5$,$\chi(1)=1,\chi(2)=-1,\chi(3)=-1,\chi(4)=1$とする.
+\[
+\tau(\chi,5)=\zeta_5-\zeta_5^2-\zeta_5^3+\zeta_5^4
+\]
+$\tau(\chi,5)^2=5$が成立する.\\
+以下Asirの実行結果
+\begin{verbatimtab}
+[208] A=newalg(x^4+x^3+x^2+x+1);
+(#0)
+[209] B=A-A^2-A^3+A^4;
+(#0^4-#0^3-#0^2+#0)
+[210] simpalg(B^2);
+5
+\end{verbatimtab}
+ここで,以下の定理を証明する.\\
+\begin{theo}
+$q$が素数,$(q,N)=1,\chi(x)=\pm 1\quad(\forall x)$のとき,
+\[
+\tau(\chi,N)^q\equiv \chi(q)^{-1}\tau(\chi,N) \pmod q
+\]
+\end{theo}
+証明\\
+\begin{align}
+\tau(\chi,N)^q&=(\sum_{x \in (\mathbb Z/N)^\times} \chi(x)\zeta_N^x)^q\\
+&\equiv \sum_{x \in (\mathbb Z/N)^\times} \chi(x)^q\zeta_N^{qx} \pmod q\\
+&= \sum_{x \in (\mathbb Z/N)^\times} \chi(x)\zeta_N^{qx}\\
+&=\sum_{y \in (\mathbb Z/N)^\times} \chi(y q^{-1})\zeta_N^y\\
+&=\chi(q)^{-1}\tau(\chi,N)
+\end{align}
+\begin{theo}
+$N=p$($p$は素数)のとき,
+\[
+\chi \neq 1\Rightarrow \tau(\chi,p)\tau(\bar\chi,p)=\chi(-1)p
+\]
+\end{theo}
+証明\\
+$|\chi(x)|=1(\forall x)$より,$\bar\chi=\chi^{-1}$である.
+よって,
+\begin{align}
+\tau(\chi,p)\tau(\bar\chi,p)=\cdots
+\end{align}
+Qed.
+これは一般の$N$に拡張できるのではないか.
+\begin{theo}
+$\chi$のconductorが$N \Longrightarrow \tau(\chi,N)\tau(\bar\chi,N)=N\chi(-1)$
+\end{theo}
+$N=2p$の場合を示す.
+\begin{align}
+\tau(\chi,2p)&=\sum_{t=1,2\not | t}^{2p-1} \chi(t)\zeta_{2p}^t\\
+&=\sum_{u=1}^{p-1} \chi(p+2u)\zeta_{2p}^{p+2u}\\
+&=-\sum_{u=1}^{p-1}\chi(p+2u)\zeta_p^u\\
+&=-\tau(u\mapsto \chi(p+2u),p)
+\end{align}
+よって
+\begin{align}
+\chi \neq 1\Longrightarrow \tau(\chi,2p)\tau(\overline\chi,2p)=p\chi(-1)
+\end{align}
+\end{document}

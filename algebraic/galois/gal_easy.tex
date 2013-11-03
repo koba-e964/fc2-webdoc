@@ -1,0 +1,65 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Q}{\mathbb{Q}}
+\begin{document}
+\section{ガロア理論入門}
+\subsection{ガロア理論とは}
+\section{低次の代数方程式の場合}
+\subsection{2次方程式}
+\subsubsection{根の公式}
+2次方程式
+\[
+x^2+bx+c=0
+\]
+の根は
+\[
+x=\frac{-b\pm \sqrt{b^2-4c}}{2}
+\]
+であった.
+この根の公式を導出する過程を追う.
+
+(1)平方完成
+\[
+\left(x+\frac b2\right)^2=x^2+bs+\frac{x^2}4
+\]
+を利用して
+\[
+x^2+bx+c=\left(x+\frac b2\right)^2-\left(b-\frac{c^2}4\right)
+\]
+と変形する.
+これから,元の方程式は
+\begin{equation}
+\left(x+\frac b2\right)^2=b-\frac{c^2}4 \label{eq1}
+\end{equation}
+と変形できる.
+
+(2)平方根の計算\\
+式(\ref{eq1})の平方根をとると
+\begin{equation}
+x+\frac b2=\pm \sqrt{b-\frac{c^2}4} \label{eq2}
+\end{equation}
+となる(ここで答えが2種類現れたことに注目する).
+
+(3)移項\\
+\[
+x=-\frac b2\pm \sqrt{b-\frac{c^2}4} \label{eq2}
+\]
+移項しただけ.
+
+以上より,根
+\begin{align*}
+x_1=-\frac b2+ \sqrt{b-\frac{c^2}4}\\
+x_2=-\frac b2- \sqrt{b-\frac{c^2}4}
+\end{align*}
+が得られた.
+\subsubsection{根を用いた表示}
+根$x_1,x_2$を用いて,方程式を解く途中に出てきた式を表す.
+
+(1)$b,c$\\
+根と係数の関係より,
+\begin{align*}
+b=-(x_1+x_2)\\
+c=x_1x_2
+\end{align*}
+
+\end{document}

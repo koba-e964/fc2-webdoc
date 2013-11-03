@@ -1,0 +1,27 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Qed}{\begin{flushright}$\Box$\end{flushright}}
+\newcommand{\Q}{\mathbb Q}
+\begin{document}
+Fermatの定理
+\[
+x^p+y^p=z^p\Longrightarrow xyz=0
+\]
+($x,y,z$は互いに素)\\
+を,正則素数$p(\geq 3)$に対して証明しよう.\\
+ここで,証明する定理を以下のように強くする(元の命題が系として簡単に導けるようにする).
+
+\[\zeta_p:1\mbox{の原始$p$乗根},K:=\mathbb Q(\zeta_p),R:=\mathfrak O_K=\mathbb Z[\zeta_p],\lambda=1-\zeta_p\]
+とする.
+このとき,
+\[
+x,y,z\in R,\epsilon\in R^\times;(\lambda \not| x,y\wedge   x^p+y^p=\epsilon z^p )\Longrightarrow xyz=0
+\]
+である.
+
+証明\\
+$x^p+y^p=\epsilon z^p$であるとする.
+$\lambda \not | x,y$より$x\neq 0,y\neq 0$であるから,$z=0$であることを示す.
+$z\neq 0$であると仮定して,$\lambda^m || z$とすると矛盾が導けることを示す.
+$m$に関する数学的帰納法を使う.
+\end{document}

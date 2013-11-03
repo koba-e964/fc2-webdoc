@@ -1,0 +1,37 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Frob}{\mathrm{Frob}}
+\newcommand{\Gal}{\mathrm{Gal}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\begin{document}
+Galois Groups of finite fields $\Gal(\mathbb F_{q^n}/\mathbb F_q)$
+\begin{align}
+&\mathbb F_q^\times \mbox{ is cyclic}\\
+\Longrightarrow & \exists a\in \mathbb F_p^\times;\mathrm{order}(a)=q^f-1\\
+\Longrightarrow & ({\Frob_q}^n(a)=a^{p^n}=a \Leftrightarrow p^f-1|p^n-1)\\
+\Longleftrightarrow & (\Frob_q^n=1 \Leftrightarrow f|n)\\
+\Longleftrightarrow & \mathrm{order}(\Frob_q)=f
+\end{align}
+\begin{align}
+|\Aut_{\mathbb F_q}(\mathbb F_{q^f})| \leq [\mathbb F_{q^f} : \mathbb F_q] \qquad \mbox{since ??}\\
+\langle \Frob_q \rangle \subseteq \Aut_{\mathbb F_q}(\mathbb F_{q^f})
+\end{align}
+‚æ‚è,
+\[
+\langle \Frob_q \rangle = \Aut(\mathbb F_{q^f}/\mathbb F_q)
+\]
+‚æ‚Á‚Ä,
+\[
+|\Aut_{\mathbb F_q}(\mathbb F_{q^f})| = [\mathbb F_{q^f} : \mathbb F_q]=f
+\]
+‚æ‚è,$\mathbb F_{q^f}/\mathbb F_q$‚ÍGalois extension‚Å‚ ‚è,
+\begin{align}
+\Gal(\mathbb F_{q^f}/\mathbb F_q)=\langle \Frob_q \rangle
+\end{align}
+‰¼’è
+\begin{align}
+|\Aut_K(L)|=[L:K] \Longrightarrow L/K \mbox{ is Galois.}\\
+|\Aut_K(L)|\leq [L:K]
+\end{align}
+\end{document}
+

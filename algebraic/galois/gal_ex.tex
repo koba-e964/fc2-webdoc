@@ -1,0 +1,110 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\rt}{\mathrm{root}}
+\newcommand{\Gal}{\mathrm{Gal}}
+\newcommand{\pend}{\begin{flushright}$\Box$\end{flushright}}
+\newtheorem{theo}{定理}[section]
+\newtheorem{defn}{定義}[section]
+\begin{document}
+\section{Galois拡大}
+\subsection{自己同型群}
+体$K,L$に対して,$L\mapsto L$の自己同型であって,$K$の元を動かさないもの$\sigma$($\sigma|_K=1$となるもの)は,
+群をなす.これを{\bf 自己同型群}といい,$\Aut_K(L)=\Aut(L/K)$と表す.\\
+$\Aut_K(L)$の元は,全て$L/K$の共役作用である.つまり,$\forall \sigma \in \Aut_K(L)$のとき$\forall \theta\in L$に対して
+$\sigma(\theta)$は最小多項式$f_\theta(x) \in K[x]$の根となる.
+(証明は後で行う)
+\begin{theo}(:単拡大定理,$\Aut_K(L)$は全て共役)
+\[
+|\Aut_K(L)|\leq [L:K]
+\]
+\end{theo}
+証明\\
+$n=[L:K]$とする.$\rt_M(f(x))$を,体$M$上の多項式$f(x)$の根の集合とする.
+$L=K(\alpha)$となるような数$\alpha$をとる(単拡大定理).$\alpha$の$K$上の最小多項式を$f_\alpha(x) \in K[x]$とする.
+$f_\alpha(x)$の$L$上の因数分解を考える.
+\begin{equation}
+f_\alpha(x)=g_0(x)g_1(x)\cdots g_{l-1}(x) \qquad \mbox{(各$g_i(x)$はmonicで既約,deg$g_i(x)\geq 1$,$g_i$は互いに
+異なる{\bf とは限らない})} \label{eq1-1}
+\end{equation}
+ここで,$L$は整域なので,\[\rt_L(f_\alpha(x))=\bigcup_{i=0}^{m-1}\rt_L(g_i(x))\]
+ここで,
+\begin{align*}
+ &\mbox{if } g_i(x) \mbox{ is irreducible};\\
+& \deg g_i(x) =1 
+\Longleftrightarrow  \rt_L(g_i(x)) \neq \emptyset 
+\Longleftrightarrow  |\rt_L(g_i(x))| = 1 &\\
+&\deg g_i(x) \geq 2 
+\Longleftrightarrow  \rt_L(g_i(x)) =\emptyset
+(\Longleftrightarrow  |\rt_L(g_i(x))| =0 )&
+\end{align*}
+と,(\ref{eq1-1})の両辺の次数を比べて得られる式\[ n \geq l \]より,\[|\rt_L(f_\alpha(x))|\leq n\]
+ここで,$\alpha$の共役のうち$L$内のものは,$\rt_L(f_\alpha(x))$の元である.\\
+よって,$\beta \in \rt_L(f_\alpha(x))$に対し$\sigma \in \Aut_K(L)$が1:1に対応するので,
+(注1:ここで,$\Aut_K(L)$の作用が必ず共役であることを使った.これは明らかでないので証明を要する.)\\
+(注2:$L=K(\alpha)$より,$\Aut_K(L)$の元は$K$の元を保存するので,$\alpha$への作用ですべてが決まる.)
+\[
+|\Aut_K(L)|=|\rt_L(f_\alpha(x))|\leq n=[L:K]
+\]\pend
+\noindent
+例:\\
+(i)$L/K=\mathbb Q(\sqrt{2})/\mathbb Q$のとき\\
+$\alpha=\sqrt 2$としてよい.$f_\alpha(x)=x^2-2$であり,
+\[f_\alpha(x)=(x-\alpha)(x+\alpha)\]より,\[\Aut_{\mathbb Q}(\mathbb Q(\alpha))=\{1,(\alpha \mapsto -\alpha)\}
+\simeq \mathbb Z/2\mathbb Z\simeq S_2\mbox{ (対称群,symmetry group)}\]
+(ii)$L/K=\mathbb Q(\sqrt[3]2)/\mathbb Q$のとき\\
+$\alpha=\sqrt[3]2$とする.$f_\alpha(x)=x^3-2$であり,
+\[f_\alpha(x)=(x-\alpha)(x^2+\alpha x +\alpha^2)\]より,
+\[\Aut_\mathbb Q (\mathbb Q(\alpha))=\{1 \} \]
+ここでは,$f_\alpha(x)$の$\alpha$以外の根が$\mathbb Q(\alpha)$には含まれていない.
+のちに記すように,この様な(共役をすべては含まない)体はGalois理論ではそれほど役に立たない.\\
+(iii)$L/K=\mathbb Q(\sqrt[3]2,\omega)/\mathbb Q$のとき((ii)で,$\alpha=\sqrt[3]2$の共役をすべて含めた拡大体)\\
+$\beta=\sqrt[3]2+\omega$とすれば,$L=\mathbb Q(\beta)$を満たす.実際,
+\begin{align*}
+\sqrt[3]2&= \frac 19 (-2\beta^5-3\beta^4-6\beta^3+6\beta^2-18)\in \mathbb Q(\beta)\\
+\omega   &= \frac 19  (2\beta^5+3\beta^4+6\beta^3-6\beta^2+9\beta+18) \in \mathbb Q(\beta)
+\end{align*}である.\\
+$\beta$の最小多項式は
+\[f_\beta(x)=x^6+3x^5+6x^4+3x^3+9x+9\]
+ここで,$\beta$の共役($f_\beta(x)$の根)を,
+\begin{align}
+\beta^{(0\ 1)}=\omega\sqrt[3]2+\omega^2,\beta^{(0\ 2)}=\omega^2\sqrt[3]2+\omega^2,
+\beta^{(1\ 2)}=\sqrt[3]2+\omega^2,
+\beta^{(0\ 1\ 2)}=\omega\sqrt[3]2+\omega,\beta^{(0\ 2\ 1)}=\omega^2\sqrt[3]2+\omega
+\end{align}
+とすると,根1つにつき同型$\sigma \in \Aut(\mathbb Q(\beta)/\mathbb Q)$が1つ対応するので,
+\begin{align}
+\Aut(\mathbb Q(\beta)/\mathbb Q)=\{1,(\beta\mapsto\beta^{(0\ 1)}),(\beta\mapsto\beta^{(0\ 2)}),
+(\beta\mapsto\beta^{(1\ 2)}),(\beta\mapsto\beta^{(0\ 1\ 2)}),(\beta\mapsto\beta^{(0\ 2\ 1)})\}\\
+=\{1,\sigma\tau,\sigma^2\tau,\tau,\sigma,\sigma^2\}\simeq S_3
+\end{align}
+(注1:ここで,$\tau=(\omega\mapsto \omega^2),\sigma=(\sqrt[3]2\mapsto\omega\sqrt[3]2)$,
+$\sigma$と$\tau$は非可換である.)\\
+(注2:$\beta$の右上の添え字は集合$\{0,1,2\}$上の置換を表す.
+$x^3-2=0$の根を$x_0=\sqrt[3]2,x_1=\omega \sqrt[3]2,x_2=\omega^2 \sqrt[3]2$とする.
+集合$\{0,1,2\}$上の置換$r$に対して,$s\in \Aut(\mathbb Q(\beta)/\mathbb Q)$を,
+\[
+s(x_j)=x_{r(j)}
+\]
+となるように決めると,
+\[s(\beta)=\beta^r\]
+となるようにしている.この書き方により,ある方程式(この場合$x^3-2=0$)の根の置換と,
+その方程式の最小分解体(この場合$\mathbb Q(\sqrt[3]2,\omega)$)の自己同型写像の対応が
+明らかになる.)\\
+
+以上で明らかのように,体の拡大$L/K$において,$\theta\in L$の($[L:K]$個の)共役(の一部)が$L$の中にない,つまり
+\[|\Aut_K(L)|<[L:K]\]となることがある.一方で$\theta\in L$の($[L:K]$個の)共役がすべて$L$の中にあるような拡大
+$L/K$は,特別な意味を持つ.それを{\bf Galois拡大}と呼ぶ.
+\begin{defn}[Galois拡大]
+\[
+|\Aut_K(L)|=[L:K]
+\]
+となる場合,$L/K$を{\bf Galois拡大}と呼ぶ.また,その時その自己同型群$\Aut_K(L)$を,{\bf Galois群}と呼び,
+\[
+\Gal(L/K)=\Aut_K(L)
+\]
+と記す.
+\end{defn}
+これは,先の(\ref{eq1-1})で,$g_0(x),\cdots,g_{n-1}(x)$がすべて相異なり(分離拡大),1次で,そのため$f_\alpha(x)$が相異なる
+$n=[L:K]$個の根を持つ(正規拡大)場合に相当する.
+\end{document}

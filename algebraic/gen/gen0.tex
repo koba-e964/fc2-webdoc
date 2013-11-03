@@ -1,0 +1,107 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,theorem}
+\theoremstyle{break}
+\newtheorem{theo}{定理}[section]
+\newtheorem{defn}{定義}[section]
+\newcommand{\Q}{\mathbb{Q}}
+\begin{document}
+\section{代数的数-入門}
+この節は,環と体の知識を必須とする.\\
+環とは,$\mathbb Z$の様な,和,差,積について閉じている(演算の結果がまたその中に含まれる)もので,\\
+体とは,$\mathbb Q,\mathbb R,\mathbb C$の様な,加減乗除について閉じているものである.\\
+体は環の一種であるが,体そのものを環としてみなすことはあまりなく,体のある部分集合を環とみなす,という場合が多い.
+\subsection{代数的数}
+\begin{defn}[代数的数]
+ある有理数係数の代数方程式$a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0=0\qquad(n\geq 1,a_n\neq0)$の根である複素数を,
+{\bf 代数的数}(algebraic number)という.また,そのような数を,($\mathbb Q$上)代数的という.
+\end{defn}
+例:\\
+$\sqrt 2$は,$x^2-2=0$の根であるため,代数的数である.\\
+$\sqrt 2+\sqrt {-5}$は,$x^4+6x^2+49=0$の根(の一つ)であるため,代数的数である.\\
+(代数的数は,ギリシア文字$\alpha,\beta,\gamma,\cdots$を使って表されることが多い.)\\
+ここで,以下の定理が成り立つ.
+\begin{theo}
+任意の代数的数の加減乗除は,また代数的数になる.\\
+(代数的数の集合は,体である.)
+\end{theo}
+例:\\
+(i)$x^2-2=0$の根である$\sqrt 2$と,$x^2+5=0$の根である$\sqrt {-5}$の和$\sqrt 2 +\sqrt{-5}$は,
+$x^4+6x^2+49=0$の根である.\\
+(ii)$\sqrt 5/\sqrt[3]2$は,$4x^6-125=0$の根である.
+\begin{defn}[最小多項式,次数]
+代数的数$\alpha$に対して,$x=\alpha$を根に持つ($\mathbb Q$係数の)方程式$f(x)=0$があるので,
+その$f(x)$の中で次数が$1$以上で最小のものがある.それを($\mathbb Q$上の)最小多項式という.
+また,最小多項式の次数を,$\alpha$の($\mathbb Q$上の){\bf 次数}といい,$\deg \alpha$と書く.
+\end{defn}
+例:\\
+$\sqrt 2$の最小多項式は$x^2-2$なので,次数は$2$である.\\
+$\sqrt 2+\sqrt{-5}$の最小多項式は$x^4+6x^2+49$なので,次数は$4$である.\\
+なお,今後多項式$f(x)$の根というときには,$f(x)=0$の根と同じ意味である.\\
+
+($\alpha$の)最小多項式には,以下の特徴がある.\\
+(1)$\alpha$を根に持つ$\mathbb Q$係数の多項式は,最小多項式で割り切れる.\\
+\ 例:$x^4-4$は$\sqrt 2$を根に持つが,$x^4-4=(x^2-2)(x^2+2)$である.\\
+つまり,$\{f(x)\in \mathbb Q[x]|f(\alpha)=0\}$には最大公約元が存在し,それは最小多項式である.\\
+(2)最小多項式は複数あるが,それらはすべて定数倍の違いである.\\
+\ 例:$x^2-2$と$2x^2-4$は同じ根$\sqrt 2$を持ち,その最小多項式であるが,
+一方を$2$ or $2^{-1}$倍すると他方に一致する.
+\begin{theo}[次数に関する諸定理]
+$m=\deg \alpha,n=\deg \beta$とする.
+\begin{align}
+\deg(\alpha+\beta)&\leq mn\\
+\deg(\alpha-\beta)&\leq mn\\
+\deg(\alpha\beta)&\leq mn\\
+\deg(\alpha/\beta)&\leq mn
+\end{align}
+\end{theo}
+\begin{defn}[共役]
+代数的数$\alpha$に対して,($\mathbb Q$上の)最小多項式$f_\alpha(x)$の根を$\alpha$の($\mathbb Q$上の){\bf 共役}
+という.($\alpha$自身も含まれる)
+\end{defn}
+例:\\
+$\sqrt 2$の共役は,$\pm \sqrt 2$である.
+$\sqrt[3]2$の共役は,$\sqrt[3]2\omega^i\quad(i=0,1,2)$である.
+\begin{defn}[Norm,Trace]
+代数的数$\theta$の($\mathbb Q$上の)最小多項式$a_nx^n+\cdots+a_1x+a_0(a_n\neq 0)$に対して,
+$-a_{n-1}/a_n$を($\mathbb Q$上の)Trace,$(-1)^na_0/a_n$を($\mathbb Q$上の)Normという.
+\end{defn}
+(注:TraceとNormについては,体のTrace,Normの方が一般的である.よって,上の概念に特別な記号はないが,体のTrace,Normには
+記号$\mathrm{Tr}_{L/K},N_{L/K}$がある.)\\
+例:\\
+$\sqrt 2$の($\mathbb Q$上の)Normは2,Traceは0である.
+\subsection{$K$上代数的}
+先の節の内容は,方程式,多項式の係数として別の体$K$の数を認めれば,$K$上代数的,最小多項式,次数,共役,Trace,Norm
+等が同じように定義できる.\\
+(ただし"代数的数"という言い回しは有理数体上代数的の数にのみ使われる)\\
+例:\\
+$K=\mathbb C$(複素数体)のとき\\
+任意の複素数係数の方程式は必ず($\mathbb C$内に)根を持つので,$\{\mathbb C\mbox{上代数的な数}\}=\mathbb C$が
+成り立つ.({\bf 代数学の基本定理})\\
+また,$\mathbb A=\{\mathbb Q\mbox{上代数的な数}\}=\{\mbox{代数的数}\}$とするとき,
+$\{\mathbb A\mbox{上代数的な数}\}=\mathbb A$が成り立つ.
+つまり,$\mathbb A$上代数的な数は代数的数($\mathbb Q$上代数的)なのである.
+\subsection{代数的整数}
+\begin{defn}[代数的整数]
+($\mathbb Q$上)代数的な$\alpha$について,$\alpha$の最小多項式のうち最上位の項が1であるものを$f_\alpha(x)$とする.
+このとき$f_\alpha(x)$のすべての係数が整数($\mathbb Z$内)である場合,$\alpha$を,
+($\mathbb Z$上,あるいは$\mathbb Q$上){\bf 代数的整数}(algebraic integer)であるという.
+\end{defn}
+\begin{theo}[代数的整数は環をなす]
+代数的整数の和,差,積は代数的整数である.
+\end{theo}
+(この性質は整数の性質に似ている.そのため代数的整数と呼ばれるのである.)
+なお,代数的整数と区別するため,ふつうの整数($\mathbb Z$の要素)を{\bf 有理整数}(rational integer)という.
+\subsection{体の拡大}
+体$K$に対して,$K$上代数的な数$\theta$があるとき,
+\subsection{単数}
+$K$に属する数$\alpha$について,$N_{K/\Q}(\alpha)=\pm 1$のとき,$\alpha$を体$K$の{\bf 単数}という.\\
+例:\\
+\begin{itemize}
+\item $K:=\mathbb Q(\sqrt 2),\alpha=1+\sqrt 2\in K$のとき,$\alpha$は多項式$x^2-2x-1$の根なので整数である.また,
+\[N(\alpha)=(1+\sqrt 2)(1-\sqrt 2)=1-2=-1\]
+より$\alpha$は単数である.
+\item $K=\mathbb Q(\sqrt 5),\alpha=(1+\sqrt 5)/2$のとき,$\alpha$は多項式$x^2-x-1$の根なので整数である.また,
+\[N(\alpha)=\frac{1+\sqrt 5}2 \cdot \frac {1-\sqrt 5}2=-1\]より$\alpha$は単数である.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\inv}{\mathrm{inv}}
+\begin{document}
+\section{整数の集合$\Z$の定義について}
+今から行いたいのは,整数の集合$\Z$が加法に関して群をなすことの証明である.そのためには加法の定義
+がないといけない.そのため少々面倒であるが,以下のような定式化を行う.\\
+$\Z$の元$z$を,二つの自然数(0以上の整数)の組$(x,y)$で表す.($z=x-y$と書ける)
+
+(i)同値
+\[(x_1,y_1)=(x_2,y_2)\Longleftrightarrow x_1-y_1=x_2-y_2 \Longleftrightarrow x_1+y_2=y_1+x_2\]
+より,二つの$\Z$の元の等しさをこれを使って判定できる.
+
+(ii)足し算,引き算
+\[(x_1,y_1)+(x_2,y_2)=(x_1+x_2,y_1+y_2),(x_1,y_1)-(x_2,y_2)=(x_1+y_2,y_1+x_2)\]で良いだろう.\\
+(iii)反数\\
+ある数に対して,(-1)倍の数を反数という.(加法群における逆元になっているためだろうか.それほど一般的でない)\\
+\[-(x_1,y_1)=(y_1,x_1)\]
+このとき,以下のことを示す.\\
+(1)反射律,対称律,推移律を示す\\
+反射律:
+\[\forall z\in \Z,z=z\]
+対称律:
+\[\forall z_1,z_2 \in\Z,z_1=z_2\Longrightarrow z_2=z_1\]
+推移律:
+\[\forall z_1,z_2,z_3\in \Z,z_1=z_2 \wedge z_2=z_3 \Longrightarrow z_1=z_3\]
+(2)足し算の定義がwell-definedである
+\[\forall z_1,z_2,z_3,z_4\in \Z;z_1=z_2 ,z_3=z_4 \Rightarrow z_1+z_3=z_2+z_4\]
+(3)足し算に単位元$0_\Z$が存在する(これは(0,0)である)
+\[\forall z \in \Z,z+0_\Z=0_\Z+z=z\]
+(4)任意の$z\in \Z$に対して逆元$\inv(z)$が存在し以下を満たす
+\[\forall z\in \Z,z+\inv(z)=\inv (z)+z=0_\Z\]
+(5)結合法則が満たされる
+\[\forall z_1,z_2,z_3\in \Z,(z_1+z_2)+z_3=z_1+(z_2+z_3)\]
+以上の定理は自然数に関する定理によって証明できる.試してみるとよいだろう.
+\end{document}
+
