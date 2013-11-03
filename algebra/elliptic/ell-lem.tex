@@ -2,21 +2,97 @@
 \usepackage{amsmath,amssymb}
 \newcommand{\slem}{\mathrm{sl}}
 \newcommand{\clem}{\mathrm{cl}}
+\newcommand{\R}{\mathbb{R}}
 \newtheorem{prop}{命題}[subsection]
 \newtheorem{theo}[prop]{定理}
 \newtheorem{defn}[prop]{定義}
+\newtheorem{rema}[prop]{注意}
+\newtheorem{lemm}[prop]{補題}
 \begin{document}
 \section{レムニスケートサイン/コサイン函数}
-\subsection{レムニスケートサイン函数}
+\subsection{実函数としてのレムニスケートサイン函数}
 \begin{defn}
-レムニスケートサイン函数(lemniscate sine function)$\slem(u)$を、以下の関数$u(s)$の逆関数として定義する,
+レムニスケートサイン函数(lemniscate sine function)$\slem(u) $を、以下の関数$u(s)\ (0\leq s\leq 1)$の逆関数として定義する.
 \[
 u(s)=\int_0^r \frac 1 {\sqrt{1-r^4}} dr
 \]
-$\slem(u)$は以下の性質を持っている.(証明略)
+また,レムニスケート周率(lemniscate constant)を,
+\[
+\varpi:=2u(1)=2\int_0^1 \frac 1 {\sqrt{1-r^4}} dr
+\]
+で定める.(約2.6221)
 \end{defn}
+$\slem(u)$は$0\leq u \leq \varpi/2$で定義された関数である.また$\slem(u)$は以下の性質を持っている.(証明略)
+\begin{prop}$\slem(u) (0\leq u \leq \varpi/2)$は以下を満たす.
+\[\slem(0)=0\]
+\begin{equation}\slem'(u)=\sqrt{1-\slem(u)^4}\label{1}\end{equation}
+\[\slem\left(\frac \varpi 2\right)=1\]
+\[\slem(u+v)=\frac{\slem(u)(1+\slem(u)^2)\sqrt{1-\slem(v)^4}+\slem(v)(1+\slem(v)^2)\sqrt{1-\slem(u)^4}}
+{(1+\slem(u)^2)(1+\slem(v)^2)-\slem(u)\slem(v)\sqrt{1-\slem(u)^4}\sqrt{1-\slem(v)^4}}
+\quad\mbox{(加法公式)}\]
+\end{prop}
+$\slem(u)$の定義域を以下のようにして$0\leq u \leq 2\varpi$に拡張することができる.
+\begin{align*}
+\left\{ 
+\begin{array}{l l}
+\slem(u)=\slem(\varpi-u) &\quad\mbox{(if }\frac\varpi 2\leq u \leq \varpi) \\
+\slem(u)=-\slem(u-\varpi) &\quad\mbox{(if }\varpi\leq u \leq 2\varpi)
+\end{array}
+\right.
+\end{align*}
+またこのようにして拡張した$\slem(u)$を周期$2\varpi$の周期函数と見ることによって定義域を$\R$全体に拡張することができる.
+以降$\slem(u)$はこのようにして定義域を$\R$全体に拡張した函数のことを指すものとする.
+\begin{prop}
+函数$\slem:\R\rightarrow\R$は連続で,微分可能であり,周期$2\varpi$である.
+またこれに対しても加法定理は成り立つ($\sqrt{1-\slem(u)^4}$などに適切に符号をつければ).
+\end{prop}
+\begin{rema}
+このとき(\ref{1})式は必ずしも成り立たない($\slem'(u)$が負になることもある)ことに注意すること.
+
+なお(\ref{1})式の両辺を2乗した
+\[
+\slem'(u)^2=1-\slem(u)^4
+\]
+は$\R$全体で成り立つ.
+\end{rema}
+このままでは加法定理に根号が入っており$0\leq u \leq \varpi$の場合を扱うときに困るので,これを消去することを考える.
+そのために函数$\clem(u)$を定義する.
+
+加法公式に$v=\varpi/2$を代入する.($0\leq u \leq \varpi/2$)
+\begin{align*}
+\slem\left(u+\frac{\varpi}{2}\right)&=
+\frac{\slem(u)(1+\slem(u)^2)\sqrt{1-1^4}+1(1+1^2)\sqrt{1-\slem(u)^4}}
+{(1+\slem(u)^2)(1+1^2)-\slem(u)\cdot 1 \cdot\sqrt{1-\slem(u)^4}\sqrt{1-1^4}} \\
+&=\frac{\sqrt{1-\slem(u)^4}}{1+\slem(u)^2}
+\end{align*}
+$0\leq u \leq \varpi/2$かつ$v=\varpi/2$であるため根号の中身は負にはならない.
+これをレムニスケートコサイン函数(lemniscate cosine function)と呼ぶことにする.
+\begin{defn}
+レムニスケートコサイン函数(lemniscate cosine function) $\clem(u)\ (u\in \R)$を以下のように定義する.
+\[
+\clem(u):=\slem\left(u+\frac \varpi 2\right)
+\]
+また,$0\leq u \leq \varpi/2$とすると
+\[
+\clem(u)=\frac{\sqrt{1-\slem(u)^4}}{1+\slem(u)^2}
+\]
+が成立する.
+\end{defn}
+これを用いると加法公式は($0\leq u,v\leq\varpi/2$の範囲では)以下のように書き直せる.
+\begin{theo}(加法定理)\\
+$0\leq u,v\leq\varpi/2$のとき,以下が成立する.またこの式は一般に$u,v\in \R$のとき成立する.
+\[
+\slem(u+v)=\frac{\slem(u)\clem(v)+\clem(u)\slem(v)}{1-\slem(u)\slem(v)\clem(u)\clem(v)}
+\]
+\end{theo}
+以上により,周期$2\varpi$の周期函数$\slem(u),\clem(u)$が定義された.
+
+レムニスケートサイン/コサイン函数は以下の性質を持つ.
+\begin{prop}
+\end{prop}
 \begin{thebibliography}{99}
 \bibitem{lemellfunc} http://en.wikipedia.org/wiki/Lemniscatic\_elliptic\_function
+\bibitem{lemellfuncja} http://ja.wikipedia.org/wiki/レムニスケート周率
 \end{thebibliography}
 \end{document}
 
