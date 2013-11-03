@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (sjis) (TeX Live 2012/W32TeX) (format=platex 2012.5.17)  4 NOV 2013 02:24
+This is e-pTeX, Version 3.1415926-p3.3-110825-2.4 (sjis) (TeX Live 2012/W32TeX) (format=platex 2012.5.17)  4 NOV 2013 02:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -187,7 +187,7 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 242.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 242.
- [5] (./ell-lem.aux) ) 
+ [5] [6] (./ell-lem.aux) ) 
 Here is how much of TeX's memory you used:
  1306 strings out of 494055
  13802 string characters out of 3159636
@@ -197,4 +197,4 @@ Here is how much of TeX's memory you used:
  750 hyphenation exceptions out of 8191
  27i,16n,24p,249b,287s stack positions out of 5000i,500n,10000p,500000b,50000s
 
-Output written on ell-lem.dvi (5 pages, 18252 bytes).
+Output written on ell-lem.dvi (6 pages, 20232 bytes).

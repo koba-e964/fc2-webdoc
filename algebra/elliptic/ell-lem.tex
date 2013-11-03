@@ -243,7 +243,43 @@ $\slem(z),\clem(z)$の特殊値を求める.
 \section{ヴァイエルシュトラスの$\wp$函数}
 (大幅に省略.格子,$\wp_L(z)$,$G_n(L)$を定義する.)
 \section{$\slem(z),\clem(z)$と$\wp_L(z)$のアヤシイ関係}
-$L:=\varpi\{1-i,1+i\}$とおく.
+$L:=\varpi\{1-i,1+i\}$とおく.\\
+$\slem(z)$の零点は$0+L,\varpi+L$(どちらも1位),
+極は$\varpi(1-i)/2+L,\varpi(1+i)/2+L$(どちらも1位)にある.\\
+$\wp_L(z)$の零点は$\varpi+L$(2位),
+極は$L$(2位)にある.\\
+$\wp_L'(z)$の零点は$\varpi+L,\varpi(1-i)/2+L,\varpi(1+i)/2+L$(各1位),
+極は$L$(3位)にある.\\
+よって,函数
+\[
+f(z):=\frac{\slem(z)\wp_L'(z)}{\wp_L(z)}
+\]
+は極も零点も持たない.\\
+$\slem,\wp_L,\wp_L'$はすべて周期函数で周期は$L$であるため,$f(z)$も周期$L$の周期函数である.
+よって$f(\C)$は有界であり,Liouvilleの定理より$f(z)$は定数である.
+ここで$f(z)$の$z\to 0$での挙動を考えると,
+\[
+\slem(z)=z+O(z^5),
+\wp_L'(z)=-2z^{-3}+O(z),
+\wp_L(z)=z^{-2}+O(z^2)
+\]
+より,
+\[
+f(z)=-2+O(z^4)
+\]
+である.よって,
+\[
+\lim_{z\to 0} f(z)=-2
+\]
+である.よって,
+\[
+f(z)=\frac{\slem(z)\wp_L'(z)}{\wp_L(z)}=-2
+\]
+であるから,
+\[
+\slem(z)=-\frac{2\wp_L(z)}{\wp_L'(z)}
+\]である.
+
 \begin{thebibliography}{99}
 \bibitem{lemellfunc} http://en.wikipedia.org/wiki/Lemniscatic\_elliptic\_function
 \bibitem{lemellfuncja} http://ja.wikipedia.org/wiki/レムニスケート周率
